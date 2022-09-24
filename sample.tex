@@ -1,0 +1,105 @@
+\documentclass[12pt,twocolumn]{article}
+
+
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{graphicx}
+
+
+\begin{document}
+
+\input{macros}
+
+\section{Figures}
+
+\begin{figure}[h]
+    \centering
+    % 1\textwidth spans the entire page
+    % 0.5\textwidth spans half the page
+    % we set 0.48\textwidth to add some padding
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plots/simple-plot.pdf}
+    \end{subfigure}
+    \caption{Simple Plot}
+    \label{fig:simple-plot}
+\end{figure}
+
+%%
+
+Figure \ref{fig:simple-plot} shows a standard plot shown in a single column.
+
+
+\begin{figure}[h]
+    \centering
+    % we set width to 0.24\textwidth so it spans 1/4th the page
+    \begin{subfigure}[b]{0.24\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plots/simple-plot.pdf}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.24\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plots/simple-grid-plot.pdf}
+    \end{subfigure}
+    \caption{Side-by-side plot}
+    \label{fig:side-by-side-plot}
+\end{figure}
+
+Figure \ref{fig:side-by-side-plot} shows two plots side-by-side.
+%
+Notice how the font appears smaller than the other plot.
+%
+This is because the font is specified in the image PDF and is also impacted by the downsize.
+%
+This can be fixed by scaling the font size in the code that generates it.
+%
+The following formula can be used for this:
+
+\begin{equation}
+    scaled\_font\_size = (font\_size) * \frac{scaled\_width}{width}
+\end{equation}
+
+
+\begin{figure}
+    \centering
+    % we set width to 0.24\textwidth so it spans 1/4th the page
+    \begin{subfigure}[b]{0.24\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plots/simple-plot-scaled.pdf}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.24\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plots/simple-grid-plot-scaled.pdf}
+    \end{subfigure}
+    \caption{Side-by-side scaled plot}
+    \label{fig:side-by-side-scaled-plot}
+\end{figure}
+
+
+Figure \ref{fig:side-by-side-scaled-plot} shows the fixed font size with scaled values.
+%
+You can make the legend and axis labels smaller by editing the \texttt{rcParams} accordingly.
+
+
+\section{Macro Automation}
+
+For dynamic numbers in your \LaTeX{} files, you can use macros to automate their generation in your code so the manuscript updates them automatically.
+%
+The \texttt{macrogen.py} provides an implementation for automating macro file generation.
+%
+These macros are automatically generated in \texttt{macros.tex} directly from your code which is included in this file at the top.
+%
+For example, the following values are defined as macros whose values are updated by code.
+
+
+$foo = \foo{}$
+
+$barr = \barr{}$
+
+$fizz = \fizz{}$
+
+$buzz = \buzz{}$
+
+
+
+\end{document}
