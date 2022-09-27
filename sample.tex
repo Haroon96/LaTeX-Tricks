@@ -12,7 +12,7 @@
 
 \section{Figures}
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     % 1\textwidth spans the entire page
     % 0.5\textwidth spans half the page
@@ -45,22 +45,7 @@ Figure \ref{fig:simple-plot} shows a standard plot shown in a single column.
     \label{fig:side-by-side-plot}
 \end{figure}
 
-Figure \ref{fig:side-by-side-plot} shows two plots side-by-side.
-%
-Notice how the font appears smaller than the other plot.
-%
-This is because the font is specified in the image PDF and is also impacted by the downsize.
-%
-This can be fixed by scaling the font size in the code that generates it.
-%
-The following formula can be used for this:
-
-\begin{equation}
-    scaled\_font\_size = (font\_size) * \frac{scaled\_width}{width}
-\end{equation}
-
-
-\begin{figure}
+\begin{figure}[h]
     \centering
     % we set width to 0.24\textwidth so it spans 1/4th the page
     \begin{subfigure}[b]{0.24\textwidth}
@@ -76,10 +61,69 @@ The following formula can be used for this:
 \end{figure}
 
 
+Figure \ref{fig:side-by-side-plot} shows two plots side-by-side.
+%
+Notice how the font appears smaller than the other plot.
+%
+This is because the font is specified in the image PDF and is also impacted by the downsize.
+%
+This can be fixed by scaling the font size in the code that generates it.
+%
+The following formula can be used for this:
+
+\begin{equation}
+    scaled\_font\_size = (font\_size) * \frac{scaled\_width}{width}
+\end{equation}
+
+
 Figure \ref{fig:side-by-side-scaled-plot} shows the fixed font size with scaled values.
 %
 You can make the legend and axis labels smaller by editing the \texttt{rcParams} accordingly.
 
+
+
+\subsection{Subplots}
+
+Subplots with separate legend can be seen in Figure \ref{fig:subplots-with-legend}.
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plots/legend.pdf}
+    \end{subfigure}
+
+
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plots/subplot0.pdf}
+        \caption{Subplot 1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plots/subplot1.pdf}
+        \caption{Subplot 2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plots/subplot2.pdf}
+        \caption{Subplot 3}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plots/subplot3.pdf}
+        \caption{Subplot 4}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plots/subplot4.pdf}
+        \caption{Subplot 5}
+    \end{subfigure}
+    \caption{Subplots with legend}
+    \label{fig:subplots-with-legend}
+\end{figure*}
+
+\pagebreak
 
 \section{Macro Automation}
 
